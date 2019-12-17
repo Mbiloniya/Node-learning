@@ -3,6 +3,9 @@ const hbs = require("hbs")
 const fs = require("fs")
 const path = require('path');
 
+// Alternative for port
+const port = process.env.PORT || 3000;
+
 
 var app = express()
 
@@ -77,6 +80,10 @@ app.get("/help",(req,res) => {
     res.sendFile(path.join(__dirname+"/public/help.html"))
 })
 
-app.listen(3000,()=>{
-    console.log("server is up")
+// app.listen(3000,()=>{
+//     console.log("server is up")
+// })
+
+app.listen(port,()=>{
+    console.log(`server is up on port ${port}`)
 })
